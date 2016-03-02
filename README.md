@@ -23,7 +23,7 @@ First download the script and then follow the instructions below. Be sure you ha
 		c.	Part of the sign-up procedure involves receiving a phone call and entering a PIN using the phone keypad.</br>
 	2.	Sign in to your Console 
 		a.	It can sometimes take while for your new AWS account to go live. You will receive an e-mail when your account is active.
-	</br>
+	
 <b>Step #2 – Create a Lambda Function</b>
 	1. Select US East (N. Virginia) region (upper right)</br>
 	![Alt text](/path/to/selectRegion.jpg)
