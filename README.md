@@ -16,11 +16,11 @@ Remember, the more facts you add, the more compelling your experience will be fo
 First download the script and then follow the instructions below. Be sure you have the fact skill template, "SpaceGeek" set up properly before you move on to customizing it to your set of facts. 
 </br>
 
-<b>Step #1 – Create an AWS Account</b>
+<b>Step #1 – Create an AWS Account</b><br>
 	1.	Open aws.amazon.com and then choose ‘Create an Free AWS Account’ 
 		a.	Follow the online instructions. Do not worry about the IAM role, we will do that later.
 		b.	You will need a Valid Credit Card to set up your account (note this is a free tier however)
-		c.	Part of the sign-up procedure involves receiving a phone call and entering a PIN using the phone keypad.
+		c.	Part of the sign-up procedure involves receiving a phone call and entering a PIN using the phone keypad.<br>
 	2.	Sign in to your Console 
 		a.	It can sometimes take while for your new AWS account to go live. You will receive an e-mail when your account is active.
 	</br>
