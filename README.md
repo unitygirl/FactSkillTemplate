@@ -37,12 +37,12 @@ Note: If you are new to Lambda and would like more information, visit the [Lambd
  
 3. Select **“Create a Lambda Function”** to begin the process of defining your Lambda function.
 
-4. At the bottom of the ‘Select Blueprint’ page, select **“Skip”**
+4. At the bottom of the **‘Select Blueprint’** page, select **“Skip”**
 
 5. You should be in ‘Configure Function’
  a. Enter the **Name**, **Description**, and **Runtime** for your skill as in the example.
  
-6. Select the ‘Code Entry Type’ as ‘Upload Zip File’ and upload the zip file containing the example. Here’s the link again for reference, you will need to click on “View Raw” to download.
+6. Select the **‘Code Entry Type’** as **‘Upload Zip File’** and upload the zip file containing the example. Here’s the [link](https://github.com/amzn/alexa-skills-kit-js/blob/master/samples/spaceGeek/FactSkillTemplate/FactSkillTemplate.zip) again for reference, you will need to click on “View Raw” to download.
 
 7. Set your handler and role as follows: 
     a. Keep Handler as ‘index.handler’
