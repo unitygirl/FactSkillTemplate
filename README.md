@@ -5,16 +5,16 @@ We want to introduce another way to help you build useful and meaningful skills 
 Using the Alexa Skills Kit, you can build an application that can receive and respond to voice requests made on the Alexa platform. In this tutorial, you’ll build a web service to handle notifications from Alexa and map this service to a Skill in the Amazon Developer Portal, making it available on your device and to all Alexa users after certification.
 
 After completing this tutorial, you'll know how to do the following:
-* Create a fact-based skill - This tutorial will walk first-time Alexa skills developers through all the required steps involved in creating a fact based skill using a template called ‘SpaceGeek’.
-* Understand the basics of VUI design - Creating this skill will help you understand the basics of creating a working Voice User Interface (VUI) while using a cut/paste approach to development. You will learn by doing, and end up with a published Alexa skill. This tutorial includes instructions on how to customize the skill and submit for certification. For guidance on designing a voice experience with Alexa you can also [watch this video](https://goto.webcasts.com/starthere.jsp?ei=1087592).
-* Use JavaScript/Node.js and the Alexa Skills Kit to create a skill - You will use the template as a guide but the customization is up to you. For more background information on using the Alexa Skills Kit please [watch this video](https://goto.webcasts.com/starthere.jsp?ei=1087595).         
-* Get your skill published - Once you have completed your skill, this tutorial will guide you through testing your skill and sending your skill through the certification process for making it available to be enabled by any Alexa user.
+* **Create a fact-based skill** - This tutorial will walk first-time Alexa skills developers through all the required steps involved in creating a fact based skill using a template called ‘SpaceGeek’.
+* **Understand the basics of VUI design** - Creating this skill will help you understand the basics of creating a working Voice User Interface (VUI) while using a cut/paste approach to development. You will learn by doing, and end up with a published Alexa skill. This tutorial includes instructions on how to customize the skill and submit for certification. For guidance on designing a voice experience with Alexa you can also [watch this video](https://goto.webcasts.com/starthere.jsp?ei=1087592).
+* **Use JavaScript/Node.js and the Alexa Skills Kit to create a skill** - You will use the template as a guide but the customization is up to you. For more background information on using the Alexa Skills Kit please [watch this video](https://goto.webcasts.com/starthere.jsp?ei=1087595).         
+* **Get your skill published** - Once you have completed your skill, this tutorial will guide you through testing your skill and sending your skill through the certification process for making it available to be enabled by any Alexa user.
 
 ## Let’s Get Started
-First, [Download the code](https://github.com/amzn/alexa-skills-kit-js/blob/master/samples/spaceGeek/FactSkillTemplate/FactSkillTemplate.zip) and then follow the instructions below. On GitHub, click “View Raw” to download the zip file.
+First, **[Download the code](https://github.com/amzn/alexa-skills-kit-js/blob/master/samples/spaceGeek/FactSkillTemplate/FactSkillTemplate.zip)** and then follow the instructions below. On GitHub, click “View Raw” to download the zip file.
 
 ### Step 1 – Create an AWS Account
-1. Open [aws.amazon.com](http://aws.amazon.com) and then choose ‘Create a Free Account’
+1. Open **[aws.amazon.com](http://aws.amazon.com)** and then choose **‘Create a Free Account’**
    a. Follow the online instructions. Do not worry about the IAM role, we will do that later.
    
    b. You will need a Valid Credit Card to set up your account (note the **AWS Free Tier** will suffice however. You can find out more about the free tier here.)
@@ -33,28 +33,40 @@ Note: If you are new to Lambda and would like more information, visit the [Lambd
 1. **IMPORTANT**: Select **US East (N. Virginia)** region (upper right). This is the only region that currently supports Alexa Skill development. If you do not select the correct region, it will not work.
 
    
-2. Select Lambda from Compute services (upper left)
+2. Select **Lambda** from Compute services (upper left)
  
-3. Select “Create a Lambda Function” to begin the process of defining your Lambda function.
-4. At the bottom of the ‘Select Blueprint’ page, select “Skip”
-  5. You should be in ‘Configure Function’
- a. Enter the Name, Description, and Runtime for your skill as in the example.
-5. Select the ‘Code Entry Type’ as ‘Upload Zip File’ and upload the zip file containing the example. Here’s the link again for reference, you will need to click on “View Raw” to download.
-  6. Set your handler and role as follows: a. Keep Handler as ‘index.handler’
-b. Drop down the “Role” menu and select “* Basic execution role”. (Note: if you have already used Lambda you may already have a ‘lambda_basic_execution’ role created that you can use.) This will launch a new tab in the IAM Management Console.
-6. You will be asked to set up your Identity and Access Management or “IAM” role if you have not done so. AWS Identity and Access Management (IAM) enables you to securely control access to AWS services and resources for your users. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources. We need to create a role that allows our skill to invoke this Lambda function.
+3. Select **“Create a Lambda Function”** to begin the process of defining your Lambda function.
+
+4. At the bottom of the ‘Select Blueprint’ page, select **“Skip”**
+
+5. You should be in ‘Configure Function’
+ a. Enter the **Name**, **Description**, and **Runtime** for your skill as in the example.
+ 
+6. Select the ‘Code Entry Type’ as ‘Upload Zip File’ and upload the zip file containing the example. Here’s the link again for reference, you will need to click on “View Raw” to download.
+
+7. Set your handler and role as follows: 
+    a. Keep Handler as ‘index.handler’
+    b. Drop down the “Role” menu and select **“* Basic execution role”**. (Note: if you have already used Lambda you may already have a ‘lambda_basic_execution’ role created that you can use.) This will launch a new tab in the IAM Management Console.
+    c. You will be asked to set up your Identity and Access Management or “IAM” role if you have not done so. AWS Identity and Access Management (IAM) enables you to securely control access to AWS services and resources for your users. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources. We need to create a role that allows our skill to invoke this Lambda function.
   
-7. Accept the defaults to create a new IAM Role with a role name of lambda_basic_execution. Select “Allow” in the lower right corner and you will be returned to your Lambda function.
-8. Keep the Advanced settings as default. Select ‘Next’ and review. You should see something like below. Then select ‘Create Function’:
-  9. Next we need to create an Event source. Event sources publish events that cause the Lambda function to be invoked. Upon invocation, AWS Lambda executes your code by passing the event to the handler in your Lambda function code. You associate an event source with your Lambda function using an event source mapping. We will use the Alexa Skills Kit event source and map it to this function.
-a. In your Lambda function tabs, select ‘Event Sources’
- 10. Select ‘Add event source’
- a. Select ‘Alexa Skill Kit’ from the dropdown:
- 11. You should see the confirmation of creation of the free tier event source “Alexa Skills Kit”:
- 12. Keep this tab open as you will need to copy the ARN for your Lambda function for use in the developer portal. You can find your ARN at the top right corner of the function page:
+8. Accept the defaults to create a new IAM Role with a role name of lambda_basic_execution. Select “Allow” in the lower right corner and you will be returned to your Lambda function.
+
+9. Keep the Advanced settings as default. Select ‘Next’ and review. You should see something like below. Then select ‘Create Function’:
+
+10. Next we need to create an Event source. Event sources publish events that cause the Lambda function to be invoked. Upon invocation, AWS Lambda executes your code by passing the event to the handler in your Lambda function code. You associate an event source with your Lambda function using an event source mapping. We will use the Alexa Skills Kit event source and map it to this function.
+    a. In your Lambda function tabs, select **‘Event Sources’**
+
+    b. Select **‘Add event source’**
+    
+    c. Select **‘Alexa Skill Kit’** from the dropdown:
+    
+    d. You should see the confirmation of creation of the free tier event source **“Alexa Skills Kit”**:
+    
+    e. Keep this tab open as you will need to copy the ARN for your Lambda function for use in the developer portal. You can find your ARN at the top right corner of the function page:
  
 ### Step 3 – Set-up Your Alexa Skill in the Developer Portal
 Skills are managed through the Amazon Developer Portal. You’ll link the Lambda function you created above to a Skill defined in the Developer Portal.
+
 1. Open a new tab and go to the Developer Portal. Sign in or create a free account (upper right). You might see a different image if you have registered already or our page may have changed. If you see a similar menu and the ability to create an account or sign in, you are in the right place.
   2. Once you’ve signed in, navigate to Apps & Services
  3. Then select Alexa. You can also bookmark this page for future reference https://developer.amazon.com/edw/home.html#/skills/
